@@ -80,6 +80,15 @@ def concluir_tarefa(nome_arquivo):
     print('\033[1;32mTarefa concluída com sucesso! ✓\033[m')
     print('Meus parabéns :D')
     sleep(1)
+    while True:
+        confirmacao = str(input('Deseja concluir mais uma tarefa da lista[S/N]? ')).upper().strip()[0]
+        if confirmacao in ['S', 'N']:
+            break
+        else:
+            print('Responda apenas S ou N, por favor!')
+        if confirmacao == 'N':
+            break
+
 
 
 def mostrar_lista(nome_arquivo):
