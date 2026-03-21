@@ -107,3 +107,20 @@ def menu(*opções):
     """
     for indice, nome in enumerate(opções):
         print(f'[ {indice + 1} ] - {nome}')
+
+
+def excluir_lista(nome_arquivo):
+    if os.path.exists(f'{nome_arquivo}.txt'):
+        while True: 
+            confirmacao = str(inpuT('Tem certeza que deseja excluir essa lista[S/N]? ')).upper().strip()[0]
+            if confirmacao in ['S', 'N']:
+                break
+            else:
+                print('RESPOSTA INVÁLIDA. Por favor, responda apenas S ou N.')
+        if confirmacao == 'S':
+            os.remove(f'{nome_arquivo}.txt')
+            print(f'Lista "{nome_arquivo}" excluída com sucesso!')
+        else:
+            print('Operação cancelada.')
+    else:
+        print(f'\033[31mLISTA NÃO ENCONTRADA!\033[m')

@@ -2,7 +2,7 @@ from functions import *
 
 while True:
     print('-=' * 20)
-    menu('criar lista de tarefas', 'adicionar tarefas à lista', 'verificar tarefas da lista','concluir tarefas', 'ENCERRAR PROGRAMA')
+    menu('criar lista de tarefas', 'adicionar tarefas à lista', 'verificar tarefas da lista','concluir tarefas', 'excluir lista de tarefas','encerrar programa')
     print('-' * 20)
     try:
         user = int(input('Selecione uma opção: '))
@@ -22,6 +22,9 @@ while True:
         concluir_tarefa(str(input('Digite a lista de tarefas que deseja acessar: ')))
     
     elif user == 5:
+        excluir_lista(str(input('Digite o nome da lista que deseja excluir: ')))
+
+    elif user == 6:
         break
     
     else:
