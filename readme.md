@@ -24,10 +24,10 @@ Gerenciador de tarefas simples e funcional que roda diretamente no terminal. Per
 
 ```bash
 # Clone o repositório
-git clone https://github.com/seu-usuario/cli-task-manager.git
+git clone https://github.com/semendeZ0/task-manager.git
 
 # Acesse a pasta do projeto
-cd cli-task-manager
+cd task-manager
 
 # Execute o programa
 python main.py
@@ -76,10 +76,10 @@ A simple and functional task manager that runs directly in the terminal. It allo
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/cli-task-manager.git
+git clone https://github.com/semendeZ0/cli-task-manager.git
 
 # Navigate to the project folder
-cd cli-task-manager
+cd task-manager
 
 # Run the program
 python main.py
