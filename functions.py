@@ -56,36 +56,36 @@ def concluir_tarefa(nome_arquivo):
         else:
             print('Lista inexistente!')
             nome_arquivo = str(input('Digite o nome da lista novamente: '))
-
-    print(f'=== LISTA DE TAREFAS {nome_arquivo} ===')
-    for i, linha in enumerate(linhas):
-        print(f'{i + 1}. {linha}', end='')
-    print()
-  
     while True:
-        try:
-            numero = int(input('Qual tarefa deseja marcar como concluída? ')) - 1
-            if 0 <= numero < len(linhas):
+        print(f'=== LISTA DE TAREFAS {nome_arquivo} ===')
+        for i, linha in enumerate(linhas):
+            print(f'{i + 1}. {linha}', end='')
+        print()
+
+        while True:
+            try:
+                numero = int(input('Qual tarefa deseja marcar como concluída? ')) - 1
+                if 0 <= numero < len(linhas):
+                    break
+                else:
+                    print('\033[31mTarefa inexistente!\033[m Por favor, insira o número exato da tarefa!')
+                    sleep(1)
+            except (TypeError, ValueError):
+                print('\033[31mERRO: CARACTER INVÁLIDO.\033[mPor favor, digite apenas números inteiros.')
+                continue
+        linhas[numero] = linhas[numero].replace('[ ]', '[ \033[1;32mx\033[m ]')
+        
+        with open(f'{nome_arquivo}.txt', 'w', encoding='utf-8') as arquivo:
+            arquivo.writelines(linhas)
+        print('\033[1;32mTarefa concluída com sucesso! ✓\033[m')
+        print('Meus parabéns :D')
+        sleep(1)
+        while True:
+            confirmacao = str(input('Deseja concluir mais uma tarefa da lista[S/N]? ')).upper().strip()[0]
+            if confirmacao in ['S', 'N']:
                 break
             else:
-                print('\033[31mTarefa inexistente!\033[m Por favor, insira o número exato da tarefa!')
-                sleep(1)
-        except (TypeError, ValueError):
-            print('\033[31mERRO: CARACTER INVÁLIDO.\033[mPor favor, digite apenas números inteiros.')
-            continue
-    linhas[numero] = linhas[numero].replace('[ ]', '[ \033[1;32mx\033[m ]')
-    
-    with open(f'{nome_arquivo}.txt', 'w', encoding='utf-8') as arquivo:
-        arquivo.writelines(linhas)
-    print('\033[1;32mTarefa concluída com sucesso! ✓\033[m')
-    print('Meus parabéns :D')
-    sleep(1)
-    while True:
-        confirmacao = str(input('Deseja concluir mais uma tarefa da lista[S/N]? ')).upper().strip()[0]
-        if confirmacao in ['S', 'N']:
-            break
-        else:
-            print('Responda apenas S ou N, por favor!')
+                print('Responda apenas S ou N, por favor!')
         if confirmacao == 'N':
             break
 

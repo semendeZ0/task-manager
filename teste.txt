@@ -1,0 +1,6 @@
+[ [1;32mx[m ] Lavar louça
+[ [1;32mx[m ] Programar
+[ [1;32mx[m ] tes1
+[ [1;32mx[m ] tes2
+[ [1;32mx[m ] tes3
+[ ] tes4
